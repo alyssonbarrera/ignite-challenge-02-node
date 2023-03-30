@@ -11,7 +11,7 @@ export async function find(request: FastifyRequest, reply: FastifyReply) {
 
   const findUserByIdUseCase = makeFindUserByIdUseCase()
 
-  const user = await findUserByIdUseCase.execute({ id })
+  const { user } = await findUserByIdUseCase.execute(id)
 
   return reply.status(200).send({
     user: {

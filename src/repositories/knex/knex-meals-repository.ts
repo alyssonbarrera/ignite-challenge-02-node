@@ -21,11 +21,13 @@ export class KnexMealsRepository implements MealsRepository {
   }
 
   async findById(id: string): Promise<Meal | null> {
-    const meal = await knex('meals')
-      .where({ id })
-      .first()
-      .join('users', 'users.id', '=', 'meals.user_id')
-      .select('meals.*', 'users.name as user_name')
+    const query = `
+      SELECT meals.*, users.name as user_name
+      FROM meals
+      INNER JOIN users ON users.id = meals.user_id
+      WHERE meals.id = ?
+    `
+    const [meal] = await knex.raw(query, [id])
 
     return meal
   }

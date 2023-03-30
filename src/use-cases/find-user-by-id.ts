@@ -1,5 +1,5 @@
-import { UsersRepository } from '@/repositories/users-repository'
 import { AppError } from './errors/AppError'
+import { UsersRepository } from '@/repositories/users-repository'
 
 export class FindUserByIdUseCase {
   constructor(private usersRepository: UsersRepository) {}

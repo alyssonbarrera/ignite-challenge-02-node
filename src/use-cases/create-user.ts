@@ -1,8 +1,8 @@
 import { hash } from 'bcryptjs'
+import { randomUUID } from 'crypto'
 import { AppError } from './errors/AppError'
 import { CreateUserDTO } from '@/dtos/create-user-dto'
 import { UsersRepository } from '@/repositories/users-repository'
-import { randomUUID } from 'crypto'
 
 export class CreateUserUseCase {
   constructor(private usersRepository: UsersRepository) {}

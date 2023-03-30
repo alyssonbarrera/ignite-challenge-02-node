@@ -1,6 +1,6 @@
+import { AppError } from './errors/AppError'
 import { UpdateMealDTO } from '@/dtos/update-meal-dto'
 import { MealsRepository } from '@/repositories/meals-repository'
-import { AppError } from './errors/AppError'
 
 export class UpdateMealUseCase {
   constructor(private mealsRepository: MealsRepository) {}

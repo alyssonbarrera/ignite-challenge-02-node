@@ -8,7 +8,7 @@ export async function getMetrics(request: FastifyRequest, reply: FastifyReply) {
 
   const metrics = await getMetricsUseCase.execute(id)
 
-  reply.status(200).send({
+  return reply.status(200).send({
     metrics,
   })
 }

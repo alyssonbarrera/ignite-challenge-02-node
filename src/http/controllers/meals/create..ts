@@ -18,12 +18,11 @@ export async function create(request: FastifyRequest, reply: FastifyReply) {
   try {
     const createMealUseCase = makeCreateMealUseCase()
     await createMealUseCase.execute(data)
+    return reply.status(201).send()
   } catch (error) {
     if (error instanceof AppError) {
       return reply.status(error.statusCode).send({ error: error.message })
     }
     throw error
   }
-
-  reply.status(201).send()
 }

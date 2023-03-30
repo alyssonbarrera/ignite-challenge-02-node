@@ -1,5 +1,5 @@
-import { MealsRepository } from '@/repositories/meals-repository'
 import { AppError } from './errors/AppError'
+import { MealsRepository } from '@/repositories/meals-repository'
 
 export class DeleteMealUseCase {
   constructor(private mealsRepository: MealsRepository) {}

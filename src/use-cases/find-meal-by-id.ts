@@ -1,5 +1,5 @@
-import { MealsRepository } from '@/repositories/meals-repository'
 import { AppError } from './errors/AppError'
+import { MealsRepository } from '@/repositories/meals-repository'
 
 export class FindMealByIdUseCase {
   constructor(private mealsRepository: MealsRepository) {}
@@ -11,8 +11,6 @@ export class FindMealByIdUseCase {
       throw new AppError('Meal not found', 404)
     }
 
-    return {
-      meal,
-    }
+    return meal
   }
 }
